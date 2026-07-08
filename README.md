@@ -29,6 +29,26 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+This is a content-based recommender that matches songs to a user by comparing the attributes of each song against the stated preferences of the user. Each song carries four features that actually drive the score: genre, mood, energy, and acousticness. `UserProfile` stores the following favorite_genre, favorite_mood, target_energy, and likes_acoustic.
+How the `recommender.py` computes a score for each song:
+| Rule | Feature | How it scores | Weight |
+|---|---|---|---|
+| Genre | `genre` | exact match → full points, else 0 | 3.0 |
+| Mood | `mood` | exact match → full points, else 0 | 2.0 |
+| Energy | `energy` | closeness to `target_energy` | 2.0 |
+| Acoustic | `acousticness` | reward/penalize per `likes_acoustic` | 1.0 |
+
+How songs are chosen to recommend:
+UserProfile ─┐
+             ├─► score_song(song) ──► (score, reasons)  ── for each song
+Song ────────┘                                │
+                                              ▼
+                              recommend_songs: sort by score, take top k
+                                              │
+                                              ▼
+                            [(song, score, explanation), ...]
+
+
 ---
 
 ## Getting Started
