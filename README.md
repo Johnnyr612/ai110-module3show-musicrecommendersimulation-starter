@@ -17,28 +17,39 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
+This is a content-based recommender that matches songs to a user by comparing the attributes of each song against the stated preferences of the user. Each song carries four features that actually drive the score: genre, mood, energy, and acousticness. `UserProfile` stores the following: favorite_genre, favorite_mood, target_energy, and likes_acoustic.
 
-Some prompts to answer:
+### Data flow
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+```
+INPUT                    PROCESS                              OUTPUT
+─────                    ───────                              ──────
+User Prefs   ──►   The Loop: score EVERY song in the   ──►   The Ranking:
+(genre, mood,      CSV one at a time with the recipe         sort by score,
+ energy,           below → (score, reasons)                  take Top K
+ likes_acoustic)                                             recommendations
+```
 
-You can include a simple diagram or bullet list if helpful.
+- **Input** — a taste profile: `favorite_genre`, `favorite_mood`, `target_energy` (0.0–1.0), and `likes_acoustic` (True/False).
+- **Process** — `score_song` judges each song independently and returns `(score, reasons)`. This is the **Scoring Rule** (one song at a time).
+- **Output** — `recommend_songs` collects all scores, **sorts** them best-to-worst, and returns the **top `k`** as `(song, score, explanation)`. This is the **Ranking Rule** (the whole list).
 
-This is a content-based recommender that matches songs to a user by comparing the attributes of each song against the stated preferences of the user. Each song carries four features that actually drive the score: genre, mood, energy, and acousticness. `UserProfile` stores the following favorite_genre, favorite_mood, target_energy, and likes_acoustic.
-How the `recommender.py` computes a score for each song:
+### Algorithm Recipe
+
+Each song's score is the sum of four weighted rules (**max 4.5 points**):
+
 | Rule | Feature | How it scores | Weight |
 |---|---|---|---|
-| Genre | `genre` | exact match → full points, else 0 | 3.0 |
-| Mood | `mood` | exact match → full points, else 0 | 2.0 |
-| Energy | `energy` | closeness to `target_energy` | 2.0 |
-| Acoustic | `acousticness` | reward/penalize per `likes_acoustic` | 1.0 |
+| Genre | `genre` | exact match → full points, else 0 | 2.0 |
+| Mood | `mood` | exact match → full points, else 0 | 1.0 |
+| Energy | `energy` | closeness to `target_energy` | up to 1.0 |
+| Acoustic | `acousticness` | reward per `likes_acoustic` | 0.5 |
 
-How songs are chosen to recommend:
+Energy is scored by **closeness, not size**: `closeness = 1 - abs(song_energy - target_energy)`. A song exactly at the target earns the full point; a song far off (in either direction) earns almost nothing. Genre is weighted highest because a genre mismatch is the most jarring; mood is softer and cuts across genres.
+
+### How songs are chosen to recommend
+
+```
 UserProfile ─┐
              ├─► score_song(song) ──► (score, reasons)  ── for each song
 Song ────────┘                                │
@@ -47,7 +58,14 @@ Song ────────┘                                │
                                               │
                                               ▼
                             [(song, score, explanation), ...]
+```
 
+### Potential biases I expect
+
+- **Genre over-prioritization.** Genre (2.0) outweighs every other rule, so a perfect genre match can bury a song that nails the user's mood and energy but sits in a neighboring genre — great cross-genre picks get ignored.
+- **All-or-nothing categories.** Genre and mood are exact-match, so "ambient" earns *zero* genre credit against a "lofi" fan even though they're musically close — the same zero a totally unrelated genre gets.
+- **Filter bubble.** It only rewards similarity to what the user already likes, so it never surprises them with something new.
+- **Small-catalog bias.** It can only recommend from this tiny CSV; whatever genres and moods are over-represented there dominate the results.
 
 ---
 
