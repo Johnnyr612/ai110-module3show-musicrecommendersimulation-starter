@@ -1,20 +1,53 @@
-id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
-1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18
-2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71
-3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10
-4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86
-5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05
-6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92
-7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89
-8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
-9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
-10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
-11,Black Hole Sun,Soundgarden,grunge,brooding,0.61,104,0.24,0.42,0.28
-12,Regalo De Dios,Julion Alvarez y su Norteno Banda,regional mexican,romantic,0.72,130,0.83,0.74,0.34
-13,You,"Lloyd, Lil Wayne",r&b,flirty,0.58,106,0.62,0.71,0.16
-14,Crazy,"Gnarls Barkley, CeeLo Green",soul,introspective,0.66,112,0.41,0.76,0.31
-15,Still Chosen,Peysoh,hip hop,defiant,0.70,142,0.48,0.72,0.09
-16,Sunlit Savanna,Ayo Drumline,afrobeats,uplifting,0.79,108,0.86,0.85,0.22
-17,Neon Voltage,Circuit Kids,edm,energetic,0.95,128,0.72,0.90,0.03
-18,Dust and Diesel,Rhett Canyon,country,nostalgic,0.55,96,0.58,0.60,0.55
-19,Moonlit Reverie,Clara Vaughn,classical,serene,0.30,68,0.45,0.30,0.95
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,popularity,release_decade,mood_tags,language,explicit
+1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18,78,2020,euphoric|uplifting|bright,english,False
+2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71,55,2020,nostalgic|dreamy|calm,instrumental,False
+3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10,64,2010,aggressive|driving|dark,english,False
+4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86,47,2020,calm|nostalgic|dreamy,instrumental,False
+5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05,82,2020,aggressive|euphoric|driving,english,True
+6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92,33,2010,dreamy|serene|calm,instrumental,False
+7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89,41,2000,warm|nostalgic|smooth,instrumental,False
+8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22,59,2010,nostalgic|moody|dark,english,False
+9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78,52,2020,calm|focused|dreamy,instrumental,False
+10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35,68,2010,euphoric|uplifting|bright,english,False
+11,Black Hole Sun,Soundgarden,grunge,brooding,0.61,104,0.24,0.42,0.28,74,1990,moody|brooding|dark,english,False
+12,Regalo De Dios,Julion Alvarez y su Norteno Banda,regional mexican,romantic,0.72,130,0.83,0.74,0.34,71,2010,romantic|warm|uplifting,spanish,False
+13,You,"Lloyd, Lil Wayne",r&b,flirty,0.58,106,0.62,0.71,0.16,66,2000,romantic|smooth|warm,english,True
+14,Crazy,"Gnarls Barkley, CeeLo Green",soul,introspective,0.66,112,0.41,0.76,0.31,80,2000,moody|introspective|smooth,english,False
+15,Still Chosen,Peysoh,hip hop,defiant,0.70,142,0.48,0.72,0.09,49,2020,aggressive|defiant|dark,english,True
+16,Sunlit Savanna,Ayo Drumline,afrobeats,uplifting,0.79,108,0.86,0.85,0.22,63,2020,euphoric|uplifting|bright,english,False
+17,Neon Voltage,Circuit Kids,edm,energetic,0.95,128,0.72,0.90,0.03,70,2020,euphoric|driving|bright,instrumental,False
+18,Dust and Diesel,Rhett Canyon,country,nostalgic,0.55,96,0.58,0.60,0.55,45,2010,nostalgic|warm|calm,english,False
+19,Moonlit Reverie,Clara Vaughn,classical,serene,0.30,68,0.45,0.30,0.95,38,1900,serene|calm|dreamy,instrumental,False
+20,Lean Wit It,Mike Sherm,hip hop,defiant,0.68,140,0.45,0.75,0.08,55,2020,aggressive|defiant|dark,english,True
+21,Throw Away,Future,hip hop,moody,0.60,128,0.35,0.72,0.10,68,2010,moody|dark|introspective,english,True
+22,Valerie (Live At BBC Radio 1 Live Lounge),Amy Winehouse,soul,nostalgic,0.50,100,0.60,0.60,0.55,72,2000,warm|nostalgic|smooth,english,False
+23,Tu Boda,"Oscar Maydon, Fuerza Regida",regional mexican,romantic,0.70,130,0.70,0.72,0.30,74,2020,romantic|warm|uplifting,spanish,True
+24,Corrido De Juanito,Calibre 50,regional mexican,nostalgic,0.62,125,0.55,0.65,0.35,66,2010,nostalgic|warm|defiant,spanish,False
+25,Colgando en tus manos,"Carlos Baute, Marta Sánchez",latin pop,romantic,0.60,120,0.75,0.68,0.30,70,2000,romantic|warm|uplifting,spanish,False
+26,Loba,Shakira,latin pop,flirty,0.82,122,0.78,0.85,0.12,78,2000,euphoric|bright|flirty,spanish,False
+27,Tu Príncipe,"Daddy Yankee, Zion & Lennox",reggaeton,flirty,0.78,95,0.70,0.82,0.10,64,2000,romantic|flirty|uplifting,spanish,False
+28,LOKERA,"Rauw Alejandro, Lyanno, Brray",reggaeton,energetic,0.80,92,0.68,0.88,0.06,76,2020,euphoric|flirty|bright,spanish,True
+29,Dile Que Tu Me Quieres,Ozuna,reggaeton,romantic,0.70,94,0.62,0.80,0.12,69,2010,romantic|smooth|warm,spanish,False
+30,Desesperados,"Rauw Alejandro, Chencho Corleone",reggaeton,uplifting,0.83,96,0.80,0.90,0.05,80,2020,euphoric|bright|flirty,spanish,True
+31,Look Back at It,A Boogie Wit da Hoodie,hip hop,flirty,0.66,150,0.60,0.78,0.12,70,2010,flirty|bright|smooth,english,True
+32,Switch Up,Lil Pete,hip hop,moody,0.58,130,0.42,0.70,0.15,48,2020,moody|introspective|smooth,english,True
+33,Right Wit It,"Kalan.FrFr, Chris O'Bannon, G Perico",hip hop,defiant,0.70,100,0.55,0.80,0.10,52,2020,defiant|aggressive|bright,english,True
+34,Fast Life,"52 Mobb, Pmfadrian",hip hop,intense,0.72,140,0.40,0.74,0.08,45,2020,aggressive|dark|defiant,english,True
+35,Her Way,PARTYNEXTDOOR,r&b,flirty,0.55,110,0.50,0.72,0.18,66,2010,flirty|smooth|moody,english,True
+36,Devil In A New Dress,"Kanye West, Rick Ross",hip hop,introspective,0.60,105,0.45,0.60,0.25,82,2010,introspective|smooth|moody,english,True
+37,Facts,Mike Sherm,hip hop,defiant,0.70,138,0.50,0.76,0.09,50,2020,defiant|aggressive|bright,english,True
+38,Feel Me,Mike Sherm,hip hop,moody,0.64,132,0.44,0.73,0.10,49,2020,moody|introspective|dark,english,True
+39,I'm Back,MoneySign Suede,hip hop,defiant,0.68,142,0.52,0.75,0.08,47,2020,defiant|bright|aggressive,english,True
+40,Love Letter,Frostydasnowmann,hip hop,romantic,0.60,128,0.55,0.72,0.14,44,2020,romantic|smooth|flirty,english,True
+41,Therapy,Mike Sherm,hip hop,introspective,0.58,126,0.40,0.70,0.16,48,2020,introspective|moody|calm,english,True
+42,Candy,Plan B,reggaeton,flirty,0.74,94,0.72,0.85,0.10,60,2000,flirty|euphoric|bright,spanish,False
+43,La Camioneta Gris,Los Tigres Del Norte,regional mexican,nostalgic,0.58,120,0.55,0.62,0.40,58,1990,nostalgic|warm|defiant,spanish,False
+44,Effortless,"MemoTheMafioso, O'Way",hip hop,defiant,0.66,132,0.48,0.74,0.10,46,2020,defiant|smooth|bright,english,True
+45,Fuck It Up (feat. YG),"Kamaiyah, YG",hip hop,defiant,0.72,138,0.58,0.82,0.08,55,2010,defiant|aggressive|bright,english,True
+46,Slow Jamz,"Twista, Kanye West, Jamie Foxx",hip hop,flirty,0.62,100,0.60,0.75,0.20,74,2000,flirty|smooth|warm,english,True
+47,Shells Droppin',"Bravo the Bagchaser, MemoTheMafioso",hip hop,intense,0.70,140,0.42,0.73,0.09,44,2020,aggressive|dark|defiant,english,True
+48,"So Fresh, So Clean",Outkast,hip hop,happy,0.68,102,0.72,0.80,0.12,78,2000,bright|flirty|uplifting,english,True
+49,What You Won't Do for Love,Bobby Caldwell,soul,romantic,0.48,96,0.62,0.60,0.45,70,1970,romantic|smooth|warm,english,False
+50,Superpowers,Daniel Caesar,r&b,introspective,0.50,90,0.48,0.62,0.35,68,2020,introspective|smooth|serene,english,False
+51,WY@,Brent Faiyaz,r&b,moody,0.55,105,0.45,0.70,0.22,72,2020,moody|smooth|introspective,english,True
+52,Masego's Interlude,"Sango, Masego",r&b,chill,0.52,98,0.58,0.66,0.30,60,2010,smooth|dreamy|calm,english,False
